@@ -1,0 +1,56 @@
+.edit-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #2A2A40;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #4a4a68;
+  background: #1e1e2f;
+  color: white;
+}
+
+.double-row {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #4F7BFF;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #7C4DFF;
+}
+
+.success {
+  color: #4fff80;
+  text-align: center;
+}
+
+.error {
+  color: #ff6161;
+  text-align: center;
+}

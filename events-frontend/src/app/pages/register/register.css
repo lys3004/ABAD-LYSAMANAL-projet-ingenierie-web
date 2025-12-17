@@ -1,0 +1,77 @@
+.auth-container {
+  width: 90%;
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 35px;
+  background: #2A2A40;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.25);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: 700;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #4a4a68;
+  background: #1e1e2f;
+  color: white;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #4F7BFF;
+  box-shadow: 0 0 10px rgba(79,123,255,0.5);
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #4F7BFF;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #7C4DFF;
+  transform: translateY(-2px);
+}
+
+.switch {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.switch a {
+  color: #4F7BFF;
+  font-weight: 600;
+}
+
+.error {
+  color: #ff6161;
+  font-size: 14px;
+  text-align: center;
+}
+
+.success {
+  color: #4fff80;
+  font-size: 14px;
+  text-align: center;
+}

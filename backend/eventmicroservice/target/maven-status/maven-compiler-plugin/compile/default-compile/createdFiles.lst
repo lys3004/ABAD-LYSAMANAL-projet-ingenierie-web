@@ -1,0 +1,10 @@
+com\event\event\EventServiceApplication.class
+com\event\event\NotArgsConstructor.class
+com\event\event\clients\ParticipantClient.class
+com\event\event\controllers\EventController.class
+com\event\event\EventRestConfig.class
+com\event\event\repositories\EventRepository.class
+com\event\event\clients\NotificationRequest.class
+com\event\event\services\EventService.class
+com\event\event\clients\NotificationClient.class
+com\event\event\entities\Event.class

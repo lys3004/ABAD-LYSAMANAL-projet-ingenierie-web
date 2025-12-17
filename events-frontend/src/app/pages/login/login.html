@@ -1,0 +1,39 @@
+<div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+  <div class="card" style="width: 100%; max-width: 400px;">
+    <h2 class="text-center mb-4">Connexion</h2>
+
+    <form (ngSubmit)="onLogin()">
+      <div class="input-group">
+        <label>Email</label>
+        <input 
+          type="email" 
+          placeholder="votre@email.com"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label>Mot de passe</label>
+        <input 
+          type="password" 
+          placeholder="********"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <p class="error" *ngIf="errorMessage" style="color: var(--danger); font-size: 0.9rem; margin-bottom: 1rem;">
+        {{ errorMessage }}
+      </p>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
+    </form>
+
+    <div class="text-center mt-4" style="font-size: 0.9rem;">
+      Pas de compte ? <a routerLink="/register">Créer un compte</a>
+    </div>
+  </div>
+</div>

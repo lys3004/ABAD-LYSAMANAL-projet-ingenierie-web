@@ -1,0 +1,41 @@
+.block {
+  margin-top: 25px;
+  padding: 20px;
+  background: #2A2A40;
+  border-radius: 12px;
+  color: white;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #1e1e2f;
+  border-radius: 10px;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.email {
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.empty {
+  text-align: center;
+  opacity: 0.7;
+}
+
+.loading {
+  opacity: 0.7;
+  text-align: center;
+}

@@ -1,0 +1,29 @@
+<app-navbar />
+
+<div class="notif-container">
+
+  <h2 class="title">🔔 Mes Notifications</h2>
+
+  <div *ngIf="loading" class="loading">Chargement...</div>
+
+  <div *ngIf="!loading && notifications.length === 0" class="no-notif">
+    Aucune notification pour le moment.
+  </div>
+
+  <div *ngFor="let n of notifications" class="notif-card" [class.unread]="!n.readStatus">
+
+    <div class="notif-message">
+      {{ n.message }}
+    </div>
+
+    <div class="notif-date">
+      {{ n.date | date:'short' }}
+    </div>
+
+    <button *ngIf="!n.readStatus" class="read-btn" (click)="markAsRead(n.id)">
+      Marquer comme lu
+    </button>
+
+  </div>
+
+</div>

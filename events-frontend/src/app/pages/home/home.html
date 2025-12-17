@@ -1,0 +1,17 @@
+<app-navbar />
+
+<h2 class="page-title">Événements disponibles</h2>
+
+<div class="events-container">
+  <div class="event-card" *ngFor="let event of events" (click)="openEvent(event.id)">
+    
+    <h3>{{ event.title }}</h3>
+    <p class="desc">{{ event.description }}</p>
+
+    <div class="bottom">
+      <span class="location">📍 {{ event.location }}</span>
+      <span class="date">📅 {{ event.date }}</span>
+    </div>
+
+  </div>
+</div>

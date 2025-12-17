@@ -1,0 +1,17 @@
+<div class="block">
+  <h3>Participants inscrits ({{ participants.length }})</h3>
+
+  <div class="loading" *ngIf="loading">Chargement…</div>
+
+  <div *ngIf="!loading && participants.length === 0" class="empty">
+    Aucun participant pour le moment.
+  </div>
+
+  <div *ngFor="let p of participants" class="card">
+    <div class="icon">👤</div>
+    <div>
+      <p class="name">{{ p.name }}</p>
+      <p class="email">{{ p.email }}</p>
+    </div>
+  </div>
+</div>

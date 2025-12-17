@@ -1,0 +1,18 @@
+<nav class="navbar">
+
+  <div class="nav-left">
+    <a routerLink="/" class="logo">Eventify</a>
+  </div>
+
+  <div class="nav-center">
+    <a routerLink="/home" routerLinkActive="active">Accueil</a>
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/create-event" routerLinkActive="active">Créer</a>
+    <a routerLink="/notifications" routerLinkActive="active">Notifications</a>
+  </div>
+
+  <div class="nav-right">
+    <button class="logout-btn" (click)="logout()">Déconnexion</button>
+  </div>
+
+</nav>

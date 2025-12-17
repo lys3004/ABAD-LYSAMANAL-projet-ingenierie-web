@@ -1,0 +1,7 @@
+com\event\notification\controllers\NotificationController.class
+com\event\notification\entities\Notification.class
+com\event\notification\entities\Notification$NotificationBuilder.class
+com\event\notification\repositories\NotificationRepository.class
+com\event\notification\services\NotificationService.class
+com\event\notification\NotificationmicroserviceApplication.class
+com\event\notification\NotificationRestConfig.class

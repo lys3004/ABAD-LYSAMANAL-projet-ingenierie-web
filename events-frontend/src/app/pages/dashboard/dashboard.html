@@ -1,0 +1,50 @@
+<app-navbar />
+
+<div class="container mt-4">
+
+  <div class="flex justify-between items-center mb-4">
+    <h2>Dashboard Organisateur</h2>
+    <button class="btn btn-primary" (click)="createEvent()">+ Créer un événement</button>
+  </div>
+
+  <div *ngIf="loading" class="text-center" style="padding: 2rem; color: var(--text-muted);">
+    Chargement des événements...
+  </div>
+
+  <div *ngIf="!loading && events.length === 0" class="text-center"
+    style="padding: 3rem; background: var(--white); border-radius: var(--radius-lg); border: 1px dashed var(--border);">
+    <p style="margin-bottom: 1rem; color: var(--text-muted);">Aucun événement trouvé.</p>
+    <button class="btn btn-primary" (click)="createEvent()">Commencer maintenant</button>
+  </div>
+
+  <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+    <div class="card" *ngFor="let event of events" style="display: flex; flex-direction: column;">
+
+      <div style="flex: 1;">
+        <div class="flex justify-between items-start mb-2">
+          <h3 style="margin: 0; font-size: 1.25rem;">{{ event.title }}</h3>
+          <span
+            style="background: var(--light); padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">
+            {{ event.participantsCount || 0 }} inscrits
+          </span>
+        </div>
+
+        <p
+          style="color: var(--text-muted); margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+          {{ event.description }}
+        </p>
+
+        <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+          <div style="margin-bottom: 0.25rem;">📍 {{ event.location }}</div>
+          <div>📅 {{ event.date }}</div>
+        </div>
+      </div>
+
+      <div class="flex gap-2 mt-4" style="border-top: 1px solid var(--border); padding-top: 1rem;">
+        <button class="btn btn-outline" style="flex: 1;" (click)="editEvent(event.id)">Modifier</button>
+        <button class="btn btn-danger" style="flex: 1;" (click)="deleteEvent(event.id)">Supprimer</button>
+      </div>
+
+    </div>
+  </div>
+</div>

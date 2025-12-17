@@ -1,0 +1,8 @@
+com\event\participant\entities\Participant.class
+com\event\participant\ParticipantRestConfig.class
+com\event\participant\clients\NotificationClient.class
+com\event\participant\services\ParticipantService.class
+com\event\participant\entities\Participant$ParticipantBuilder.class
+com\event\participant\ParticipantServiceApplication.class
+com\event\participant\repositories\ParticipantRepository.class
+com\event\participant\controllers\ParticipantController.class

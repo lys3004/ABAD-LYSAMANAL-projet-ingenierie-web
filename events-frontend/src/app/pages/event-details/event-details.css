@@ -1,0 +1,98 @@
+.event-container {
+  width: 90%;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #2A2A40;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.description {
+  color: #d0d0e0;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  color: #8f8f9e;
+  margin-bottom: 18px;
+}
+
+.participants {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.actions {
+  text-align: center;
+}
+
+.register-btn {
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: #4F7BFF;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #7C4DFF;
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: #ff4c4c;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cancel-btn:hover {
+  background: #ff2a2a;
+  transform: translateY(-2px);
+}
+.full {
+  color: #ff5b5b;
+}
+
+.full-msg {
+  color: #ff5b5b;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.register-btn {
+  background: #4F7BFF;
+  padding: 12px 18px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ff5b5b;
+  padding: 12px 18px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}

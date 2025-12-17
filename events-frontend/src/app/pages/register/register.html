@@ -1,0 +1,40 @@
+<div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+  <div class="card" style="width: 100%; max-width: 400px;">
+    <h2 class="text-center mb-4">Créer un compte</h2>
+
+    <form (ngSubmit)="onRegister()">
+      <div class="input-group">
+        <label>Nom complet</label>
+        <input type="text" placeholder="John Doe" [(ngModel)]="name" name="name" required />
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" placeholder="votre@email.com" [(ngModel)]="email" name="email" required />
+      </div>
+
+      <div class="input-group">
+        <label>Mot de passe</label>
+        <input type="password" placeholder="********" [(ngModel)]="password" name="password" required />
+      </div>
+
+      <div class="input-group">
+        <label>Role</label>
+        <select [(ngModel)]="role" name="role" required>
+          <option value="USER">Participant</option>
+          <option value="ORGANIZER">Organisateur</option>
+        </select>
+      </div>
+
+      <p class="error" *ngIf="errorMessage" style="color: var(--danger); margin-bottom: 1rem;">{{ errorMessage }}</p>
+      <p class="success" *ngIf="successMessage" style="color: var(--secondary); margin-bottom: 1rem;">{{ successMessage
+        }}</p>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%;">S'inscrire</button>
+    </form>
+
+    <div class="text-center mt-4" style="font-size: 0.9rem;">
+      Déjà un compte ? <a routerLink="/login">Se connecter</a>
+    </div>
+  </div>
+</div>

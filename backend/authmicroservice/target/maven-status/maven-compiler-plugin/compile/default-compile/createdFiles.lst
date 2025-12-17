@@ -1,0 +1,7 @@
+com\event\auth\controllers\AuthController.class
+com\event\auth\entities\Role.class
+com\event\auth\config\SecurityConfig.class
+com\event\auth\AuthServiceApplication.class
+com\event\auth\entities\AppUser.class
+com\event\auth\services\UserService.class
+com\event\auth\repositories\UserRepository.class
