@@ -1,18 +1,71 @@
 <nav class="navbar">
-
-  <div class="nav-left">
-    <a routerLink="/" class="logo">Eventify</a>
+  <!-- LOGO/BRAND -->
+  <div class="navbar-brand">
+    <a routerLink="/" class="logo">🎉 Eventify</a>
   </div>
 
-  <div class="nav-center">
-    <a routerLink="/home" routerLinkActive="active">Accueil</a>
-    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-    <a routerLink="/create-event" routerLinkActive="active">Créer</a>
-    <a routerLink="/notifications" routerLinkActive="active">Notifications</a>
+  <!-- NAVIGATION LINKS -->
+  <div class="nav-links">
+    <a routerLink="/home" routerLinkActive="active" (click)="closeDropdown()">
+      Accueil
+    </a>
+
+    <a
+      *ngIf="isAuthenticated"
+      routerLink="/home"
+      routerLinkActive="active"
+      (click)="closeDropdown()">
+      Événements
+    </a>
+
+    <a
+      *ngIf="isOrganizer()"
+      routerLink="/create-event"
+      routerLinkActive="active"
+      (click)="closeDropdown()">
+      ➕ Créer Événement
+    </a>
+
+    <a
+      *ngIf="isParticipant() && isAuthenticated"
+      routerLink="/notifications"
+      routerLinkActive="active"
+      (click)="closeDropdown()">
+      🔔 Notifications
+    </a>
   </div>
 
-  <div class="nav-right">
-    <button class="logout-btn" (click)="logout()">Déconnexion</button>
-  </div>
+  <!-- USER MENU / AUTH BUTTONS -->
+  <div class="navbar-user">
+    <div *ngIf="!isAuthenticated" class="auth-buttons">
+      <a routerLink="/login" class="btn-login">Connexion</a>
+      <a routerLink="/register" class="btn-register">Inscription</a>
+    </div>
 
+    <div *ngIf="isAuthenticated" class="user-menu">
+      <button class="user-btn" (click)="toggleDropdown()">
+        <span class="avatar">👤</span>
+        <span class="user-name">{{ userName }}</span>
+        <span class="dropdown-arrow" [class.open]="isDropdownOpen">▼</span>
+      </button>
+
+      <div class="dropdown" [class.active]="isDropdownOpen">
+        <div class="dropdown-header">
+          <span class="role-badge" [class.organizer]="isOrganizer()">
+            {{ isOrganizer() ? '🎯 Organisateur' : '👥 Participant' }}
+          </span>
+        </div>
+        <a routerLink="/dashboard" class="dropdown-item" (click)="closeDropdown()">
+          📊 Mon Tableau de Bord
+        </a>
+        <hr class="dropdown-divider">
+        <button class="dropdown-item logout" (click)="logout()">
+          🚪 Déconnexion
+        </button>
+      </div>
+    </div>
+  </div>
 </nav>
+
+<!-- Backdrop for closing dropdown -->
+<div *ngIf="isDropdownOpen" class="dropdown-backdrop" (click)="closeDropdown()"></div>

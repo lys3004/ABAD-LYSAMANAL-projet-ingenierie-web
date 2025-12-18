@@ -1,7 +1,7 @@
-C:\fac\LYSA-ABAD_projetiw\backend\authmicroservice\src\main\java\com\event\auth\AuthServiceApplication.java
-C:\fac\LYSA-ABAD_projetiw\backend\authmicroservice\src\main\java\com\event\auth\config\SecurityConfig.java
-C:\fac\LYSA-ABAD_projetiw\backend\authmicroservice\src\main\java\com\event\auth\controllers\AuthController.java
-C:\fac\LYSA-ABAD_projetiw\backend\authmicroservice\src\main\java\com\event\auth\entities\AppUser.java
-C:\fac\LYSA-ABAD_projetiw\backend\authmicroservice\src\main\java\com\event\auth\entities\Role.java
-C:\fac\LYSA-ABAD_projetiw\backend\authmicroservice\src\main\java\com\event\auth\repositories\UserRepository.java
-C:\fac\LYSA-ABAD_projetiw\backend\authmicroservice\src\main\java\com\event\auth\services\UserService.java
+C:\fac\ABAD-LYSAMANAL-projet-ingenierie-web\backend\authmicroservice\src\main\java\com\event\auth\AuthServiceApplication.java
+C:\fac\ABAD-LYSAMANAL-projet-ingenierie-web\backend\authmicroservice\src\main\java\com\event\auth\config\SecurityConfig.java
+C:\fac\ABAD-LYSAMANAL-projet-ingenierie-web\backend\authmicroservice\src\main\java\com\event\auth\controllers\AuthController.java
+C:\fac\ABAD-LYSAMANAL-projet-ingenierie-web\backend\authmicroservice\src\main\java\com\event\auth\entities\AppUser.java
+C:\fac\ABAD-LYSAMANAL-projet-ingenierie-web\backend\authmicroservice\src\main\java\com\event\auth\entities\Role.java
+C:\fac\ABAD-LYSAMANAL-projet-ingenierie-web\backend\authmicroservice\src\main\java\com\event\auth\repositories\UserRepository.java
+C:\fac\ABAD-LYSAMANAL-projet-ingenierie-web\backend\authmicroservice\src\main\java\com\event\auth\services\UserService.java

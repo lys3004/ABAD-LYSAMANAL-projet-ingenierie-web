@@ -16,10 +16,14 @@ export class AuthService {
   }
 
   register(name: string, email: string, password: string, role: string) {
-    return this.http.post(`${this.API_URL}/register`, {
-      fullName: name, email, password, role
-    });
+  return this.http.post(`${this.API_URL}/register`, {
+    fullName: name,
+    email,
+    password,
+    role
+  });
   }
+
 
   getUserById(id: number) {
     return this.http.get(`${this.API_URL}/${id}`);

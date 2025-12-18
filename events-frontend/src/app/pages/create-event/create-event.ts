@@ -27,11 +27,33 @@ export class CreateEventComponent {
   successMessage = '';
   errorMessage = '';
   isLoading = false;
+  selectedImageFile: File | null = null;
+  imagePreview: string | null = null;
 
   constructor(
     private eventService: EventService,
     private router: Router
   ) {}
+
+  onImageSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      // Vérifier la taille (5MB max)
+      if (file.size > 5 * 1024 * 1024) {
+        this.errorMessage = 'L\'image doit faire moins de 5MB.';
+        return;
+      }
+
+      this.selectedImageFile = file;
+
+      // Créer un aperçu
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imagePreview = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 
   create() {
     this.successMessage = '';
@@ -44,6 +66,20 @@ export class CreateEventComponent {
       return;
     }
 
+    // Si une image est sélectionnée, la convertir en base64
+    if (this.selectedImageFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.event.imageUrl = reader.result as string;
+        this.submitEvent();
+      };
+      reader.readAsDataURL(this.selectedImageFile);
+    } else {
+      this.submitEvent();
+    }
+  }
+
+  submitEvent() {
     this.eventService.create(this.event).subscribe({
       next: () => {
         this.successMessage = 'Événement créé avec succès !';

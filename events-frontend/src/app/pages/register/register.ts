@@ -12,11 +12,13 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './register.css'
 })
 export class RegisterComponent {
+
   name = '';
   email = '';
   password = '';
   confirmPassword = '';
   role = 'USER';
+
   errorMessage = '';
   successMessage = '';
   isLoading = false;
@@ -24,12 +26,13 @@ export class RegisterComponent {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   onRegister() {
     this.errorMessage = '';
     this.successMessage = '';
 
+    // ✅ validations locales
     if (!this.name || !this.email || !this.password || !this.confirmPassword) {
       this.errorMessage = 'Veuillez remplir tous les champs.';
       return;
@@ -41,22 +44,24 @@ export class RegisterComponent {
     }
 
     this.isLoading = true;
-    this.authService.register(this.name, this.email, this.password, this.role)
+
+    this.authService
+      .register(this.name, this.email, this.password, this.role)
       .subscribe({
-        next: (res) => {
+        next: () => {
+          // ✅ succès réel (HTTP 200)
+          this.isLoading = false;
           this.successMessage = 'Compte créé avec succès !';
-          setTimeout(() => this.router.navigate(['/login']), 1500);
+
+          // redirection simple
+          this.router.navigate(['/login']);
         },
         error: (err) => {
           this.isLoading = false;
           console.error('Registration error:', err);
-          if (err.status === 409) {
-            this.errorMessage = 'Erreur : cet e-mail existe déjà.';
-          } else if (err.status === 0) {
-            this.errorMessage = 'Erreur : impossible de contacter le serveur (backend hors ligne ?)';
-          } else {
-            this.errorMessage = `Erreur (${err.status}) : ${err.message || 'problème technique'}`;
-          }
+
+          // ⚠️ ton backend ne renvoie PAS 409
+          this.errorMessage = 'Erreur serveur lors de la création du compte.';
         }
       });
   }

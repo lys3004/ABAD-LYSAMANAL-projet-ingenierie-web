@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/participant")
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class ParticipantController {
 
     private final ParticipantService service;

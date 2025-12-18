@@ -23,4 +23,7 @@ public class Event {
     private Long organizerId;
 
     private int maxParticipants = 50;
+    
+    @Column(columnDefinition = "LONGTEXT")
+    private String imageUrl;  // Base64 encoded image or URL
 }

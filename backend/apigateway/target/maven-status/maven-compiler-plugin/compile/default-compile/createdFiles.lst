@@ -1,1 +1,2 @@
 com\event\apigateway\ApiGatewayApplication.class
+com\event\apigateway\config\CorsConfig.class

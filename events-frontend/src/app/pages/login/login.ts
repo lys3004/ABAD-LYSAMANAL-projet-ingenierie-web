@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService, AppUser } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.css'
 })
 export class LoginComponent {
+
   email = '';
   password = '';
   errorMessage = '';
@@ -20,7 +21,7 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   onLogin() {
     this.errorMessage = '';
@@ -31,12 +32,13 @@ export class LoginComponent {
     }
 
     this.isLoading = true;
+
     this.authService.login(this.email, this.password).subscribe({
-      next: (res: any) => {
-        localStorage.setItem('token', JSON.stringify(res));
-        localStorage.setItem('email', res.email);
-        localStorage.setItem('role', res.role || 'USER');
-        localStorage.setItem('userId', res.id);
+      next: (user: AppUser) => {
+        // ✅ le backend retourne un AppUser, PAS un token
+        localStorage.setItem('user', JSON.stringify(user));
+
+        this.isLoading = false;
         this.router.navigate(['/dashboard']);
       },
       error: () => {

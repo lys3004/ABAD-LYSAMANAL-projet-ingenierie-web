@@ -4,6 +4,7 @@ import com.event.auth.entities.AppUser;
 import com.event.auth.repositories.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -16,21 +17,20 @@ public class UserService {
         this.encoder = encoder;
     }
 
-    public AppUser register(AppUser user) {
+    @Transactional
+    public void register(AppUser user) {
         user.setPassword(encoder.encode(user.getPassword()));
-        return userRepository.save(user);
+        userRepository.save(user);
     }
 
     public AppUser login(String email, String password) {
+        AppUser user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-    AppUser user = userRepository.findByEmail(email)
-            .orElseThrow(() -> new RuntimeException("User not found"));
+        if (!encoder.matches(password, user.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
 
-    if (!encoder.matches(password, user.getPassword())) {
-        throw new RuntimeException("Invalid password");
+        return user;
     }
-
-    return user;
-}
-
 }

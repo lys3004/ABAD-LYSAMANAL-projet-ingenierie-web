@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { EventService } from '../../services/event.service';
 import { ParticipantService } from '../../services/participant.service';
 import { NavbarComponent } from '../../shared/navbar/navbar';
@@ -16,6 +17,7 @@ export class EventDetailsComponent implements OnInit {
 
   event: any;
   eventId!: number;
+  imageUrl: SafeUrl | null = null;
 
   participantsCount = 0;
   isRegistered = false;
@@ -29,7 +31,8 @@ export class EventDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private eventService: EventService,
-    private participantService: ParticipantService
+    private participantService: ParticipantService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -41,6 +44,10 @@ export class EventDetailsComponent implements OnInit {
     this.eventService.getById(this.eventId).subscribe({
       next: (res: any) => {
         this.event = res;
+        // Sanitize l'image base64 pour qu'Angular la trust
+        if (res.imageUrl) {
+          this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(res.imageUrl);
+        }
         this.isOrganizer = this.userId === res.organizerId;
         this.isLoading = false;
         this.checkRegistration();

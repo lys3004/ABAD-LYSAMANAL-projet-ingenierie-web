@@ -2,11 +2,12 @@ package com.event.auth.controllers;
 
 import com.event.auth.entities.AppUser;
 import com.event.auth.services.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class AuthController {
 
     private final UserService userService;
@@ -16,8 +17,10 @@ public class AuthController {
     }
 
     @PostMapping("/register")
+    @ResponseStatus(HttpStatus.CREATED)
     public AppUser register(@RequestBody AppUser user) {
-        return userService.register(user);
+        userService.register(user);
+        return user;
     }
 
     @PostMapping("/login")
